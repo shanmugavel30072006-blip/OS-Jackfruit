@@ -4,8 +4,8 @@ A lightweight Linux container runtime in C with a long-running supervisor, bound
 
 ## 1. Team Information
 
-* **MEMBER 1:** Prajwalindra K H (SRN: PES2UG24AM117)
-* **MEMBER 2:** Praveen Rajesh Naik (SRN: PES2UG24AM123)
+* **MEMBER 1:** SHANMUGA VEL (PES2UG24AM083)
+* **MEMBER 2:** RAHUL (SRN: PES2UG24AM129)
 
 ## 2. Build, Load, and Run Instructions
 
