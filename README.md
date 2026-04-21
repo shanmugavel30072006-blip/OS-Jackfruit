@@ -101,68 +101,7 @@ make clean
 sudo rmmod monitor
 ```
 
-## 3. Demo with Screenshots
 
-*(Insert actual screenshot images below each caption in your final repository)*
-
-**1. Multi-container supervision**
-
-> **[![alt text](Screenshots/S1.png)]**
-
-> *Caption 1 :* Terminal output showing two containers (`alpha` and `beta`) being successfully started and running simultaneously under the single supervisor process.
-
-**2. Metadata tracking**
-
-> **[![alt text](Screenshots/S2.png)]**
-
-> *Caption 2 :* Output of the `sudo ./engine ps` command, displaying the supervisor's tracked metadata table including ID, host PID, and current execution STATE.
-
-**3. Bounded-buffer logging**
-
-> **[![alt text](Screenshots/S3.png)]**
-
-> *Caption 3 :* Terminal output showing `cat logs/alpha.log`, displaying the Alpine root directory listing successfully captured from the container's stdout via the multithreaded logging pipeline.
-
-**4. CLI and IPC**
-
-> **[![alt text](Screenshots/S4.png)]**
-
-> *Caption 4 :* Split-view showing a `stop` command issued from the client CLI in Terminal 2, and the supervisor actively acknowledging and processing the command via the UNIX socket in Terminal 1.
-
-**5 & 6. Soft-limit warning & Hard-limit enforcement**
- --- Both at once because our C code was smartly designed to use default limits (40MB and 64MB) even when you didn't type the flags, our memory_hog program hit those invisible walls and triggered the exact *dmesg* kernel logs was asked for.
-
-> **[![alt text](<Screenshots/S5 and S6.png>)]**
-
-> *Caption 5 :* `dmesg` output highlighting the kernel module emitting a `SOFT LIMIT` warning when the `memory_hog` container crosses its 40MB soft limit threshold .
-
-> **[![alt text](<Screenshots/S5 and S6.png>)]**
-
-> *Caption 6 :* `dmesg` output showing the kernel module violently terminating (`SIGKILL`) the `memory_hog` container upon breaching its 64MB hard limit, followed by the supervisor marking it as exited.
-
-**7. Scheduling experiment**
-
-> **[![alt text](Screenshots/S7.png)]**
-
-> *Caption 7 :* Side-by-side terminal output showing the stark difference in accumulator progress between `cpu-alpha` (nice 0) and `cpu-beta` (nice 19) over a 10-second run.
-
-**8. Clean teardown**
-
-** IMP NOTE OF CHANGES **
-```bash
-# we use this for better cleaning purpose :
-sudo killall engine
-sudo rm -f /tmp/mini_runtime.sock
-sudo rmmod monitor
-make clean
-
-# instead of only :
-sudo rmmod monitor
-```
-
-> **[![alt text](Screenshots/S8.png)]**
-
-> *Caption 8 :* Terminal showing the final cleanup commands (`killall`, `rmmod`, `make clean`) completing with zero permission errors, module unloading errors, or lingering zombie processes.
 
 ## 4. Engineering Analysis
 
